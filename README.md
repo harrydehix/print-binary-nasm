@@ -1,5 +1,5 @@
 # print-binary-nasm
-macro for printing binarys in nasm
+macro for printing binaries in nasm
 
 awful code, but it works
 
