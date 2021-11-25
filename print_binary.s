@@ -1,5 +1,3 @@
-%include "io.inc"
-
 ; PRINT_BINARY size, value
 %macro PRINT_BINARY 2
     push eax
@@ -19,14 +17,14 @@
     mov dl, %1
     
     
-    jmp outer_condition
-    outer:
+    jmp %%outer_condition
+    %%outer:
         rol ebx, 8
         dec dl
-        print_bl:
+        
         mov dh, 0
-        jmp condition1
-        print_bit:
+        jmp %%condition
+        %%print_bit:
             mov cl, dh
             mov al, bl
             shl al, cl
@@ -38,14 +36,13 @@
             mov cl, ch
             shr al, cl
             PRINT_DEC 1, al
-        increment_counter:
             inc dh
-        condition1:
+        %%condition:
             cmp dh, 8
-            jl print_bit
-    outer_condition:
+            jl %%print_bit
+    %%outer_condition:
         cmp dl, 1
-        jge outer
+        jge %%outer
 
     pop ecx
     pop ebx
