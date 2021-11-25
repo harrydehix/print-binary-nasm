@@ -4,6 +4,8 @@ macro for printing binarys in nasm
 awful code, but it works
 
 ## usage
+
+add the macro to your code and just use it like this:
 ```assembly
 PRINT_BINARY 4, edx
 PRINT_BINARY 2, dx
